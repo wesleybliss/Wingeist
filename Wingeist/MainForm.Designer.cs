@@ -24,6 +24,7 @@
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.contextMenuMain = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuContextPauseResume = new System.Windows.Forms.ToolStripMenuItem();
             this.menuContextExit = new System.Windows.Forms.ToolStripMenuItem();
@@ -34,10 +35,13 @@
             this.labelEventsToday = new System.Windows.Forms.Label();
             this.labelEventsThisWeek = new System.Windows.Forms.Label();
             this.panelControls = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonPauseResume = new System.Windows.Forms.Button();
+            this.buttonSettings = new System.Windows.Forms.Button();
+            this.imageListIcons = new System.Windows.Forms.ImageList(this.components);
+            this.listEvents = new System.Windows.Forms.ListBox();
             this.contextMenuMain.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.panelControls.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,6 +83,7 @@
             // panel2
             // 
             this.panel2.AutoSize = true;
+            this.panel2.Controls.Add(this.listEvents);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 77);
             this.panel2.Name = "panel2";
@@ -125,35 +130,54 @@
             // 
             // panelControls
             // 
-            this.panelControls.Controls.Add(this.button2);
-            this.panelControls.Controls.Add(this.button1);
+            this.panelControls.Controls.Add(this.buttonSettings);
+            this.panelControls.Controls.Add(this.buttonPauseResume);
             this.panelControls.Dock = System.Windows.Forms.DockStyle.Right;
             this.panelControls.Location = new System.Drawing.Point(448, 0);
             this.panelControls.Name = "panelControls";
             this.panelControls.Size = new System.Drawing.Size(258, 77);
             this.panelControls.TabIndex = 6;
             // 
-            // button1
+            // buttonPauseResume
             // 
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(90, 9);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 55);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonPauseResume.FlatAppearance.BorderSize = 0;
+            this.buttonPauseResume.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPauseResume.ImageKey = "play";
+            this.buttonPauseResume.ImageList = this.imageListIcons;
+            this.buttonPauseResume.Location = new System.Drawing.Point(90, 9);
+            this.buttonPauseResume.Name = "buttonPauseResume";
+            this.buttonPauseResume.Size = new System.Drawing.Size(75, 55);
+            this.buttonPauseResume.TabIndex = 8;
+            this.buttonPauseResume.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // buttonSettings
             // 
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(171, 9);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 55);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonSettings.FlatAppearance.BorderSize = 0;
+            this.buttonSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSettings.ImageKey = "settings";
+            this.buttonSettings.ImageList = this.imageListIcons;
+            this.buttonSettings.Location = new System.Drawing.Point(171, 9);
+            this.buttonSettings.Name = "buttonSettings";
+            this.buttonSettings.Size = new System.Drawing.Size(75, 55);
+            this.buttonSettings.TabIndex = 9;
+            this.buttonSettings.UseVisualStyleBackColor = true;
+            // 
+            // imageListIcons
+            // 
+            this.imageListIcons.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListIcons.ImageStream")));
+            this.imageListIcons.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageListIcons.Images.SetKeyName(0, "settings");
+            this.imageListIcons.Images.SetKeyName(1, "play");
+            this.imageListIcons.Images.SetKeyName(2, "pause");
+            // 
+            // listEvents
+            // 
+            this.listEvents.FormattingEnabled = true;
+            this.listEvents.ItemHeight = 23;
+            this.listEvents.Location = new System.Drawing.Point(16, 20);
+            this.listEvents.Name = "listEvents";
+            this.listEvents.Size = new System.Drawing.Size(120, 96);
+            this.listEvents.TabIndex = 1;
             // 
             // MainForm
             // 
@@ -171,6 +195,7 @@
             this.contextMenuMain.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.panelControls.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -189,8 +214,10 @@
         private System.Windows.Forms.Label labelEventsThisWeek;
         private System.Windows.Forms.Label labelEventsToday;
         private System.Windows.Forms.Panel panelControls;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonSettings;
+        private System.Windows.Forms.Button buttonPauseResume;
+        private System.Windows.Forms.ImageList imageListIcons;
+        private System.Windows.Forms.ListBox listEvents;
     }
 }
 
