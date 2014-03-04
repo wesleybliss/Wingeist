@@ -43,7 +43,7 @@ namespace Wingeist {
                          NotifyFilters.DirectoryName;
             fsw.IncludeSubdirectories = true;
             fsw.Created += new FileSystemEventHandler( fsw_Created );
-            fsw.EnableRaisingEvents = true;
+            //fsw.EnableRaisingEvents = true;
 
         }
 
