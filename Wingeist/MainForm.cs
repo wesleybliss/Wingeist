@@ -13,8 +13,12 @@ namespace Wingeist {
 
     public partial class MainForm : Form {
 
+        private static string IMAGE_PLAY_KEY = "play";
+        private static string IMAGE_PAUSED_KEY = "pause";
+
         private NotifyIcon notifyIcon;
         private FileSystemWatcher fsw;
+        private bool isPaused = true;
 
         public MainForm() {
             InitializeComponent();
@@ -65,7 +69,7 @@ namespace Wingeist {
         }
 
         private void menuContextPauseResume_Click( object sender, EventArgs e ) {
-
+            swapMode();
         }
 
         private void menuContextExit_Click( object sender, EventArgs e ) {
@@ -76,6 +80,16 @@ namespace Wingeist {
             //this.Invoke( (MethodInvoker) delegate {
             //    listBox1.Items.Add( e.Name + " ... " + e.FullPath );
             //} );
+        }
+
+        private void swapMode() {
+            isPaused = !isPaused;
+            fsw.EnableRaisingEvents = isPaused;
+            buttonPauseResume.ImageKey = isPaused ? IMAGE_PLAY_KEY : IMAGE_PAUSED_KEY;
+        }
+
+        private void buttonPauseResume_Click( object sender, EventArgs e ) {
+            swapMode();
         }
 
     } // class

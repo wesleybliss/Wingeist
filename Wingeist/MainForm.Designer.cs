@@ -29,7 +29,7 @@
             this.menuContextPauseResume = new System.Windows.Forms.ToolStripMenuItem();
             this.menuContextExit = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.panelContent = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.labelEventsToday = new System.Windows.Forms.Label();
@@ -41,7 +41,7 @@
             this.listEvents = new System.Windows.Forms.ListBox();
             this.contextMenuMain.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.panelContent.SuspendLayout();
             this.panelControls.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,15 +80,16 @@
             this.panel1.Size = new System.Drawing.Size(706, 77);
             this.panel1.TabIndex = 1;
             // 
-            // panel2
+            // panelContent
             // 
-            this.panel2.AutoSize = true;
-            this.panel2.Controls.Add(this.listEvents);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 77);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(706, 596);
-            this.panel2.TabIndex = 2;
+            this.panelContent.AutoSize = true;
+            this.panelContent.Controls.Add(this.listEvents);
+            this.panelContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContent.Location = new System.Drawing.Point(0, 77);
+            this.panelContent.Name = "panelContent";
+            this.panelContent.Padding = new System.Windows.Forms.Padding(15);
+            this.panelContent.Size = new System.Drawing.Size(706, 596);
+            this.panelContent.TabIndex = 2;
             // 
             // label1
             // 
@@ -149,6 +150,7 @@
             this.buttonPauseResume.Size = new System.Drawing.Size(75, 55);
             this.buttonPauseResume.TabIndex = 8;
             this.buttonPauseResume.UseVisualStyleBackColor = true;
+            this.buttonPauseResume.Click += new System.EventHandler(this.buttonPauseResume_Click);
             // 
             // buttonSettings
             // 
@@ -166,17 +168,19 @@
             // 
             this.imageListIcons.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListIcons.ImageStream")));
             this.imageListIcons.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageListIcons.Images.SetKeyName(0, "settings");
-            this.imageListIcons.Images.SetKeyName(1, "play");
-            this.imageListIcons.Images.SetKeyName(2, "pause");
+            this.imageListIcons.Images.SetKeyName(0, "play");
+            this.imageListIcons.Images.SetKeyName(1, "pause");
+            this.imageListIcons.Images.SetKeyName(2, "settings");
             // 
             // listEvents
             // 
+            this.listEvents.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listEvents.FormattingEnabled = true;
+            this.listEvents.HorizontalScrollbar = true;
             this.listEvents.ItemHeight = 23;
-            this.listEvents.Location = new System.Drawing.Point(16, 20);
+            this.listEvents.Location = new System.Drawing.Point(15, 15);
             this.listEvents.Name = "listEvents";
-            this.listEvents.Size = new System.Drawing.Size(120, 96);
+            this.listEvents.Size = new System.Drawing.Size(676, 566);
             this.listEvents.TabIndex = 1;
             // 
             // MainForm
@@ -184,7 +188,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(706, 673);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panelContent);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -195,7 +199,7 @@
             this.contextMenuMain.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
+            this.panelContent.ResumeLayout(false);
             this.panelControls.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -208,7 +212,7 @@
         private System.Windows.Forms.ToolStripMenuItem menuContextExit;
         private System.Windows.Forms.ToolStripMenuItem menuContextPauseResume;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panelContent;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelEventsThisWeek;
