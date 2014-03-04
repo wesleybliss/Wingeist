@@ -1,1 +1,9 @@
 c:\users\wes\documents\visual studio 2013\Projects\Wingeist\Wingeist\bin\Debug\Wingeist.exe.config
+c:\users\wes\documents\visual studio 2013\Projects\Wingeist\Wingeist\obj\Debug\Wingeist.csprojResolveAssemblyReference.cache
+c:\users\wes\documents\visual studio 2013\Projects\Wingeist\Wingeist\obj\Debug\Wingeist.MainForm.resources
+c:\users\wes\documents\visual studio 2013\Projects\Wingeist\Wingeist\obj\Debug\Wingeist.Properties.Resources.resources
+c:\users\wes\documents\visual studio 2013\Projects\Wingeist\Wingeist\obj\Debug\Wingeist.csproj.GenerateResource.Cache
+c:\users\wes\documents\visual studio 2013\Projects\Wingeist\Wingeist\bin\Debug\Wingeist.exe
+c:\users\wes\documents\visual studio 2013\Projects\Wingeist\Wingeist\bin\Debug\Wingeist.pdb
+c:\users\wes\documents\visual studio 2013\Projects\Wingeist\Wingeist\obj\Debug\Wingeist.exe
+c:\users\wes\documents\visual studio 2013\Projects\Wingeist\Wingeist\obj\Debug\Wingeist.pdb
