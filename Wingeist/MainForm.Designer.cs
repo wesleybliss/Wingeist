@@ -33,8 +33,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.labelEventsToday = new System.Windows.Forms.Label();
             this.labelEventsThisWeek = new System.Windows.Forms.Label();
+            this.panelControls = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.contextMenuMain.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panelControls.SuspendLayout();
             this.SuspendLayout();
             // 
             // contextMenuMain
@@ -61,6 +65,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.panelControls);
             this.panel1.Controls.Add(this.labelEventsThisWeek);
             this.panel1.Controls.Add(this.labelEventsToday);
             this.panel1.Controls.Add(this.label2);
@@ -118,6 +123,38 @@
             this.labelEventsThisWeek.TabIndex = 4;
             this.labelEventsThisWeek.Text = "0";
             // 
+            // panelControls
+            // 
+            this.panelControls.Controls.Add(this.button2);
+            this.panelControls.Controls.Add(this.button1);
+            this.panelControls.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelControls.Location = new System.Drawing.Point(448, 0);
+            this.panelControls.Name = "panelControls";
+            this.panelControls.Size = new System.Drawing.Size(258, 77);
+            this.panelControls.TabIndex = 6;
+            // 
+            // button1
+            // 
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(90, 9);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 55);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Location = new System.Drawing.Point(171, 9);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 55);
+            this.button2.TabIndex = 9;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
@@ -134,6 +171,7 @@
             this.contextMenuMain.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panelControls.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -150,6 +188,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelEventsThisWeek;
         private System.Windows.Forms.Label labelEventsToday;
+        private System.Windows.Forms.Panel panelControls;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }
 
