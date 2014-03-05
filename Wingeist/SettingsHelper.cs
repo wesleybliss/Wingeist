@@ -69,7 +69,7 @@ namespace Wingeist {
             ArrayList lines = new ArrayList();
 
             if ( !File.Exists( confPath ) ) {
-                File.CreateText( confPath );
+                File.CreateText( confPath ).Close();
             }
 
             using ( StreamReader sr = new StreamReader( confPath ) ) {
@@ -78,17 +78,19 @@ namespace Wingeist {
             }
 
             for ( int i = 0, l = lines.Count; i < l; i++ ) {
-                string[] parts = ((string) lines[i]).Split( new char[] { '=' } );
-                switch ( ((string) parts[0]).ToLower() ) {
-                    case "monitor_path":
-                        parts[1] = monitorPath;
-                        break;
+                if ( !string.IsNullOrEmpty( (string) lines[i] ) ) {
+                    string[] parts = ( (string) lines[i] ).Split( new char[] { '=' } );
+                    switch ( ( (string) parts[0] ).ToLower() ) {
+                        case "monitor_path":
+                            parts[1] = monitorPath;
+                            break;
+                    }
+                    lines[i] = String.Join( " = ", parts );
                 }
-                lines[i] = String.Join( " = ", parts );
             }
 
             using ( StreamWriter sw = new StreamWriter( confPath ) ) {
-                sw.Write( String.Join( Environment.NewLine, lines ) );
+                sw.Write( String.Join( Environment.NewLine, lines.ToArray() ) );
                 sw.Close();
             }
 
