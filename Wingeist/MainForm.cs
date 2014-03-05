@@ -13,6 +13,8 @@ namespace Wingeist {
 
     public partial class MainForm : Form {
 
+        private SettingsHelper settingsHelper;
+
         private static string IMAGE_PLAY_KEY = "play";
         private static string IMAGE_PAUSED_KEY = "pause";
 
@@ -23,6 +25,7 @@ namespace Wingeist {
         public MainForm() {
             InitializeComponent();
             Application.ApplicationExit += Application_ApplicationExit;
+            settingsHelper = new SettingsHelper();
         }
 
         void Application_ApplicationExit( object sender, EventArgs e ) {
@@ -40,14 +43,13 @@ namespace Wingeist {
             notifyIcon.DoubleClick += notifyIcon_DoubleClick;
             notifyIcon.Visible = false;
 
-            fsw = new FileSystemWatcher( @"C:\Users\wes", "*.txt" );
+            fsw = new FileSystemWatcher( settingsHelper.monitorPath, "*" );
             fsw.NotifyFilter = NotifyFilters.LastAccess |
                          NotifyFilters.LastWrite |
                          NotifyFilters.FileName |
                          NotifyFilters.DirectoryName;
             fsw.IncludeSubdirectories = true;
             fsw.Created += new FileSystemEventHandler( fsw_Created );
-            //fsw.EnableRaisingEvents = true;
 
         }
 
@@ -77,14 +79,14 @@ namespace Wingeist {
         }
 
         private void fsw_Created( object sender, FileSystemEventArgs e ) {
-            //this.Invoke( (MethodInvoker) delegate {
-            //    listBox1.Items.Add( e.Name + " ... " + e.FullPath );
-            //} );
+            this.Invoke( (MethodInvoker) delegate {
+                listEvents.Items.Add( e.Name + " ... " + e.FullPath );
+            } );
         }
 
         private void swapMode() {
             isPaused = !isPaused;
-            fsw.EnableRaisingEvents = isPaused;
+            fsw.EnableRaisingEvents = !isPaused;
             buttonPauseResume.ImageKey = isPaused ? IMAGE_PLAY_KEY : IMAGE_PAUSED_KEY;
         }
 

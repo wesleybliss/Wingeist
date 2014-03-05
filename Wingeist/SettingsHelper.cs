@@ -58,7 +58,7 @@ namespace Wingeist {
                 string[] parts = line.Split( new char[] { '=' } );
                 switch ( parts[0].ToLower().Trim() ) {
                     case "monitor_path":
-                        monitorPath = parts[1];
+                        monitorPath = parts[1].Trim();
                         break;
                 }
             }
