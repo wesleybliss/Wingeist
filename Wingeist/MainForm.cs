@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Collections;
 
 namespace Wingeist {
 
@@ -31,6 +32,7 @@ namespace Wingeist {
 
         // Track if changes have happened since last log append
         private bool isDirty = false;
+        private int lastDirtyIndex = -1;
 
         /// <summary>
         /// Class constructor
@@ -74,6 +76,8 @@ namespace Wingeist {
             fsw.IncludeSubdirectories = true;
             // @todo More handlers? with filters?
             fsw.Created += new FileSystemEventHandler( fsw_Created );
+
+            timerLogger.Enabled = true;
 
         }
 
@@ -132,6 +136,7 @@ namespace Wingeist {
             } );
             // Let logger know we have new events to write
             isDirty = true;
+            lastDirtyIndex = ( listEvents.Items.Count - 1 );
         }
 
         /// <summary>
@@ -165,7 +170,15 @@ namespace Wingeist {
         /// @todo Make 10min a setting
         /// </summary>
         private void timerLogger_Tick( object sender, EventArgs e ) {
-
+            //600000
+            if ( lastDirtyIndex <= -1 ) {
+                return;
+            }
+            ArrayList temp = new ArrayList();
+            for ( int i = lastDirtyIndex, l = (listEvents.Items.Count - 1); i < l; i++ ) {
+                temp.Add( listEvents.Items[i].ToString() );
+            }
+            MessageBox.Show( String.Join( Environment.NewLine, temp.ToArray() ) );
         }
 
     } // class

@@ -187,7 +187,7 @@
             // 
             // timerLogger
             // 
-            this.timerLogger.Interval = 600000;
+            this.timerLogger.Interval = 5000;
             this.timerLogger.Tick += new System.EventHandler(this.timerLogger_Tick);
             // 
             // MainForm
