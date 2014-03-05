@@ -29,6 +29,9 @@ namespace Wingeist {
         // Allow pause/resume of watching
         private bool isPaused = true;
 
+        // Track if changes have happened since last log append
+        private bool isDirty = false;
+
         /// <summary>
         /// Class constructor
         /// </summary>
@@ -127,6 +130,8 @@ namespace Wingeist {
             this.Invoke( (MethodInvoker) delegate {
                 listEvents.Items.Add( e.Name + " ... " + e.FullPath );
             } );
+            // Let logger know we have new events to write
+            isDirty = true;
         }
 
         /// <summary>
@@ -153,6 +158,14 @@ namespace Wingeist {
         /// </summary>
         private void buttonSettings_Click( object sender, EventArgs e ) {
             ( new SettingsForm() ).ShowDialog( this );
+        }
+
+        /// <summary>
+        /// Logs new events every 10 minutes
+        /// @todo Make 10min a setting
+        /// </summary>
+        private void timerLogger_Tick( object sender, EventArgs e ) {
+
         }
 
     } // class
