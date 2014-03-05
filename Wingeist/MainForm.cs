@@ -92,6 +92,10 @@ namespace Wingeist {
             swapMode();
         }
 
+        private void buttonSettings_Click( object sender, EventArgs e ) {
+            ( new SettingsForm() ).ShowDialog( this );
+        }
+
     } // class
 
 } // ns

@@ -7,3 +7,4 @@ c:\users\wes\documents\visual studio 2013\Projects\Wingeist\Wingeist\bin\Debug\W
 c:\users\wes\documents\visual studio 2013\Projects\Wingeist\Wingeist\bin\Debug\Wingeist.pdb
 c:\users\wes\documents\visual studio 2013\Projects\Wingeist\Wingeist\obj\Debug\Wingeist.exe
 c:\users\wes\documents\visual studio 2013\Projects\Wingeist\Wingeist\obj\Debug\Wingeist.pdb
+c:\users\wes\documents\visual studio 2013\Projects\Wingeist\Wingeist\obj\Debug\Wingeist.SettingsForm.resources

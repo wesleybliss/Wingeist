@@ -163,6 +163,7 @@
             this.buttonSettings.Size = new System.Drawing.Size(75, 55);
             this.buttonSettings.TabIndex = 9;
             this.buttonSettings.UseVisualStyleBackColor = true;
+            this.buttonSettings.Click += new System.EventHandler(this.buttonSettings_Click);
             // 
             // imageListIcons
             // 
