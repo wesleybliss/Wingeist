@@ -56,7 +56,7 @@ namespace Wingeist {
         private void processSetting( string line ) {
             if ( !string.IsNullOrEmpty( line ) && ( line.Substring( 0, 1 ) != "#" ) ) {
                 string[] parts = line.Split( new char[] { '=' } );
-                switch ( parts[0].ToLower() ) {
+                switch ( parts[0].ToLower().Trim() ) {
                     case "monitor_path":
                         monitorPath = parts[1];
                         break;
@@ -72,25 +72,9 @@ namespace Wingeist {
                 File.CreateText( confPath ).Close();
             }
 
-            using ( StreamReader sr = new StreamReader( confPath ) ) {
-                lines.Add( sr.ReadLine() );
-                sr.Close();
-            }
-
-            for ( int i = 0, l = lines.Count; i < l; i++ ) {
-                if ( !string.IsNullOrEmpty( (string) lines[i] ) ) {
-                    string[] parts = ( (string) lines[i] ).Split( new char[] { '=' } );
-                    switch ( ( (string) parts[0] ).ToLower() ) {
-                        case "monitor_path":
-                            parts[1] = monitorPath;
-                            break;
-                    }
-                    lines[i] = String.Join( " = ", parts );
-                }
-            }
-
             using ( StreamWriter sw = new StreamWriter( confPath ) ) {
-                sw.Write( String.Join( Environment.NewLine, lines.ToArray() ) );
+                // Hack hack until we have more settings to worry about
+                sw.Write( "monitor_path = " + monitorPath );
                 sw.Close();
             }
 
